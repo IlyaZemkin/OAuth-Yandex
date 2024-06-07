@@ -6,7 +6,10 @@ async function initMap() {
     // Промис `ymaps3.ready` будет зарезолвлен, когда загрузятся все компоненты основного модуля API
     await ymaps3.ready;
 
-    const {YMap, YMapDefaultSchemeLayer, YMapControls, YMapZoomControl} = ymaps3;
+    console.log(ymaps3)
+
+    const {YMap, YMapDefaultSchemeLayer, YMapControls} = ymaps3;
+    const {YMapZoomControl} = await ymaps3.import('@yandex/ymaps3-controls@0.0.1');
 
     // Иницилиазируем карту
     const map = new YMap(
@@ -25,9 +28,11 @@ async function initMap() {
             behaviors: ['drag', 'scrollZoom', 'pinchZoom', 'dblClick']
         }
     );
+   
+    console.log(YMapControls)
 
     // Добавляем слой для отображения схематической карты
     map.addChild(new YMapDefaultSchemeLayer());
 
-    map.addChild( new YMapControls({position: 'right'}).addChild(new YMapZoomControl({})));
+    map.addChild( new YMapControls({position: 'right'}).addChild(new YMapZoomControl({})) );
 }
