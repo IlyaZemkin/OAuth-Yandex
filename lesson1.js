@@ -110,15 +110,15 @@ for(let key in ob2) {
 
 //Функции
 let func1 = function() {
-    console.log('func1');
+    //console.log('func1');
 };
 
 function func2() {
-    console.log('f2');
+    //console.log('f2');
 };
 
 function square(num) {
-    console.log(num*num);
+    //console.log(num*num);
 }
 
 function per(num) {
@@ -131,7 +131,7 @@ function per(num) {
 
 //Стрелочная функция
 let func3 = (value, method) => {
-    console.log(method(value));
+    //console.log(method(value));
 }
 
 func3(3, square);
